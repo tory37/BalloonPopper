@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BalloonBlue Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5807358211982762558, guid: d87c753d999e9a545831c4b21a45e0b0,
+        type: 3}
+      propertyPath: name
+      value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807358211982762558, guid: d87c753d999e9a545831c4b21a45e0b0,
+        type: 3}
+      propertyPath: color
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3827435513543323749, guid: d87c753d999e9a545831c4b21a45e0b0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,10 +82,5 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 321c7ca4d97b8bc41a35cf1970504e29, type: 2}
-    - target: {fileID: 5807358211982762558, guid: d87c753d999e9a545831c4b21a45e0b0,
-        type: 3}
-      propertyPath: name
-      value: Blue
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d87c753d999e9a545831c4b21a45e0b0, type: 3}

@@ -5,9 +5,9 @@ using UnityEngine;
 public class Balloon : MonoBehaviour
 {
     [SerializeField]
-    private string name = "";
+    private BalloonColor color = BalloonColor.BLUE;
 
-    public string Name {
-        get { return name; }
+    public BalloonColor Color {
+        get { return color; }
     }
 }

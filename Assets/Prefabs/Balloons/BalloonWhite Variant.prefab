@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BalloonWhite Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4725345874980208727, guid: bf5f9e56532b4134bb051308fdebee3a,
+        type: 3}
+      propertyPath: name
+      value: White
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725345874980208727, guid: bf5f9e56532b4134bb051308fdebee3a,
+        type: 3}
+      propertyPath: color
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2601361901025055244, guid: bf5f9e56532b4134bb051308fdebee3a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,11 +76,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725345874980208727, guid: bf5f9e56532b4134bb051308fdebee3a,
-        type: 3}
-      propertyPath: name
-      value: White
       objectReference: {fileID: 0}
     - target: {fileID: 327056218684481039, guid: bf5f9e56532b4134bb051308fdebee3a,
         type: 3}
