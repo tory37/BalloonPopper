@@ -38,7 +38,6 @@ public class GameplayManager : MonoBehaviour
     void Start()
     {
         currentTimerDecrement = startingTimerDecrement;
-        setNextDisplayBalloon();
     }
     #endregion
 
@@ -62,6 +61,7 @@ public class GameplayManager : MonoBehaviour
     public static void RegisterStartingBalloon(BalloonColor color)
     {
         instance.currentBalloonColors.Add(color);
+        instance.setNextDisplayBalloon();
     }
 
     public void OnBalloonPopped(Balloon balloon)
@@ -77,7 +77,7 @@ public class GameplayManager : MonoBehaviour
         // If Balloon is not correct
         else
         {
-            instance.modifyTimer(-instance.timeDecrementPerWrongBalloon);
+            instance.modifyTimer(-instance.timeDecrementPerWrongBalloon * Time.deltaTime);
             GameplayMenuManager.DisplayNotification(NotificationType.WRONG);
         }
 

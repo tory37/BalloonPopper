@@ -7,7 +7,6 @@ public class GameMaster : MonoBehaviour
 {
     private static GameMaster instance = null;
 
-    [Header("Pseudo Dict GameScene -> Scene Name")]
     [SerializeField] private GameSceneToString sceneNames = new GameSceneToString();
 
     #region Data

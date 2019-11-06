@@ -32,6 +32,7 @@ public class EnumHelper
         }
 
         int randomIndex = RandomHelper.Exclude(0, values.Length, exclusionIndices);
-        return GetAtIndex<T>(randomIndex);
+        T val = GetAtIndex<T>(randomIndex);
+        return val;
     }
 }
