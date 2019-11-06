@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour
 {
-    [SerializeField]
-    private BalloonColor color = BalloonColor.BLUE;
+    public BalloonColor Color;
 
-    public BalloonColor Color {
-        get { return color; }
+    private void Start()
+    {
+        GameplayManager.RegisterStartingBalloon(Color);
     }
 }

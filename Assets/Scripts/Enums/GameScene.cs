@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnumDict<T, V>
+public enum GameScene
 {
-    private Dictionary<T, V> dict { get; set; }
+    MAIN_MENU,
+    GAMEPLAY,
+    GAME_OVER
 }

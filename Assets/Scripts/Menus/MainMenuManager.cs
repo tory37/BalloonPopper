@@ -56,6 +56,6 @@ public class MainMenuManager : MonoBehaviour
     private void goToGameplay(GameMode mode)
     {
         GameMaster.SetGameMode(mode);
-        SceneManager.LoadScene(GameMaster.GetGameplaySceneName());
+        GameMaster.GoToScene(GameScene.GAMEPLAY);
     }
 }
