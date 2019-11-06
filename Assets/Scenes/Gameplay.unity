@@ -987,6 +987,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2348389905590168256, guid: b8dcc8da4c86f1d4f992b63c4c70b4e9,
         type: 3}
+      propertyPath: currentBalloonColors.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348389905590168256, guid: b8dcc8da4c86f1d4f992b63c4c70b4e9,
+        type: 3}
       propertyPath: timerSliderFill
       value: 
       objectReference: {fileID: 1635509002}
@@ -1347,7 +1352,7 @@ MonoBehaviour:
       - {fileID: 21300000, guid: 135b31a19ab99fd4bb25138cc021d7b8, type: 3}
       - {fileID: 21300000, guid: 2bede84a8728fd84e8040d8e063b9b39, type: 3}
       - {fileID: 21300000, guid: f4579a4c11bfeff4a8e5aa42eba47082, type: 3}
-  notificationImage: {fileID: 4096968260810721115}
+  notificationImage: {fileID: 1454867984}
   emptySprite: {fileID: 21300000, guid: 891fd7fc2ff3bc046bbc1e046aa9d24d, type: 3}
   balloonsSprites:
     m_keys: 00000000010000000200000003000000040000000500000006000000
@@ -1361,19 +1366,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 694fd78caacb05c4e9037e88ae66e1f0, type: 3}
   timerSliderFullColor: {r: 0, g: 1, b: 0, a: 1}
   timerSliderEmptyColor: {r: 1, g: 0, b: 0, a: 1}
-  notificationAnimationSpeed: 0.2
---- !u!114 &4096968260810721115 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4096968262014672522, guid: 0e5f5f4342296dc428612011afb0ed05,
-    type: 3}
-  m_PrefabInstance: {fileID: 4096968260810721111}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  notificationAnimationSpeed: 0.01
 --- !u!114 &4096968260810721116 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4096968260113155217, guid: 0e5f5f4342296dc428612011afb0ed05,
