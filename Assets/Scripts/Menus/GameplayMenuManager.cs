@@ -15,12 +15,14 @@ public class GameplayMenuManager : MonoBehaviour
 {
     private static GameplayMenuManager instance = null;
 
+    #region Serialized Fields
     [Header("UI Elements")]
     [SerializeField] private Image displayBalloon = null;
     [SerializeField] private RectTransform timerSliderFill = null;
     [SerializeField] private RectTransform timeSliderInner = null;
     [SerializeField] private Image timerSliderImage = null;
     [SerializeField] private Text scoreText = null;
+    [SerializeField] private GameModeToRectTransform gameModePanels = new GameModeToRectTransform();
 
     [Header("Sprites")]
     [SerializeField] private NotificationTypeToSpriteList notificationAnimations = new NotificationTypeToSpriteList();
@@ -32,6 +34,7 @@ public class GameplayMenuManager : MonoBehaviour
     [SerializeField] private Color timerSliderFullColor = Color.green;
     [SerializeField] private Color timerSliderEmptyColor = Color.red;
     [SerializeField] private float notificationAnimationSpeed = .2f;
+    #endregion
 
     private IEnumerator currentNotificationCoroutine = null;
 
@@ -41,16 +44,13 @@ public class GameplayMenuManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            instance.disableAllBalloonPanels();
+            ShowGamemodePanel(GameMaster.GetCurrentGameMode());
         }
         else
         {
             Destroy(this.gameObject);
         }
-    }
-
-    void Start()
-    {
-
     }
     #endregion
 
@@ -119,6 +119,28 @@ public class GameplayMenuManager : MonoBehaviour
         Debug.Log("Changing display to " + color.ToString());
         instance.displayBalloon.sprite = instance.balloonsSprites[color];
         Debug.Log(instance.balloonsSprites[color]);
+    }
+
+    private void disableAllBalloonPanels()
+    {
+        foreach (KeyValuePair<GameMode, RectTransform> entry in instance.gameModePanels)
+        {
+            entry.Value.gameObject.SetActive(false);
+        }
+    }
+
+    public static void ShowGamemodePanel(GameMode mode)
+    {
+        foreach (KeyValuePair<GameMode, RectTransform> entry in instance.gameModePanels)
+        {
+            if (entry.Key == mode)
+            {
+                entry.Value.gameObject.SetActive(true);
+            } else
+            {
+                entry.Value.gameObject.SetActive(false);
+            }
+        }
     }
     #endregion
 }

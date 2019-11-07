@@ -43,5 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832fa5e74acb7934ba1564355f704a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplaySceneName: Gameplay
-  currentGameMode: 3
+  sceneNames:
+    m_keys: 000000000100000002000000
+    m_values:
+    - MainMenu
+    - Gameplay
+    - GameOver
+  currentGameMode: 4

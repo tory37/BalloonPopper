@@ -37,7 +37,9 @@ public class GameplayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTimerDecrement = startingTimerDecrement;
+        instance.currentTimerDecrement = instance.startingTimerDecrement;
+        GameMaster.SetLatestScore(0);
+        GameplayMenuManager.UpdateScore(0);
     }
     #endregion
 
@@ -45,15 +47,15 @@ public class GameplayManager : MonoBehaviour
     void Update()
     {
         modifyTimer(-instance.currentTimerDecrement * Time.deltaTime);
-        checkGameOver();
+        instance.checkGameOver();
     }
     #endregion
 
     #region Timer
     private void modifyTimer(float time)
     {
-        currentTimer += time;
-        GameplayMenuManager.SetTimer(currentTimer, startingTimer);
+        instance.currentTimer += time;
+        GameplayMenuManager.SetTimer(instance.currentTimer, instance.startingTimer);
     }
     #endregion
 
@@ -87,13 +89,14 @@ public class GameplayManager : MonoBehaviour
         instance.currentBalloonColors.Remove(balloon.Color);
         instance.currentBalloonColors.Add(nextColor);
         GameplayMenuManager.SetBalloon(balloon, nextColor);
-        setNextDisplayBalloon();
+        instance.setNextDisplayBalloon();
     }
 
     private void setNextDisplayBalloon()
     {
-        BalloonColor randomPoppableBalloonColor = instance.currentBalloonColors[Random.Range(0, instance.currentBalloonColors.Count)];
-        currentDisplayColor = randomPoppableBalloonColor;
+        int randomColorIndex = Random.Range(0, instance.currentBalloonColors.Count);
+        BalloonColor randomPoppableBalloonColor = instance.currentBalloonColors[randomColorIndex];
+        instance.currentDisplayColor = randomPoppableBalloonColor;
         GameplayMenuManager.SetDisplayBalloon(randomPoppableBalloonColor);
     }
     #endregion
@@ -112,7 +115,7 @@ public class GameplayManager : MonoBehaviour
         //Debug.Log("Game Over.  Correct Balloons: " + instance.rightCount);
         instance.currentTimer = 0;
         instance.currentTimerDecrement = 0;
-        //GameMaster.SetLatestScore(instance.rightCount);
+        GameMaster.SetLatestScore(ScoreManager.GetRecentScore());
         GameMaster.GoToScene(GameScene.GAME_OVER);
     }
     #endregion
