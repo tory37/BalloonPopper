@@ -82,9 +82,10 @@ public class GameplayManager : MonoBehaviour
         }
 
         // Setup next balloon
-        BalloonColor nextColor = EnumHelper.RandomExcluding<BalloonColor>(currentBalloonColors);
-        currentBalloonColors.Remove(balloon.Color);
-        currentBalloonColors.Add(nextColor);
+        List<BalloonColor> possibleColors = EnumHelper.Without<BalloonColor>(instance.currentBalloonColors);
+        BalloonColor nextColor = possibleColors[Random.Range(0, possibleColors.Count)];
+        instance.currentBalloonColors.Remove(balloon.Color);
+        instance.currentBalloonColors.Add(nextColor);
         GameplayMenuManager.SetBalloon(balloon, nextColor);
         setNextDisplayBalloon();
     }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 public class EnumHelper
 {
@@ -21,18 +22,30 @@ public class EnumHelper
         return (T)values.GetValue(index);
     }
 
-    public static T RandomExcluding<T>(List<T> exclusions)
-    {
-        System.Array values = System.Enum.GetValues(typeof(T));
+    // TODO does not work
+    //public static T RandomExcluding<T>(List<T> exclusions)
+    //{
+    //    System.Array values = System.Enum.GetValues(typeof(T));
 
-        HashSet<int> exclusionIndices = new HashSet<int>();
-        foreach(T exclusion in exclusions)
+    //    HashSet<int> exclusionIndices = new HashSet<int>();
+    //    foreach(T exclusion in exclusions)
+    //    {
+    //        exclusionIndices.Add(IndexOf<T>(exclusion));
+    //    }
+
+    //    int randomIndex System.Random.Range(0, 
+    //    T val = GetAtIndex<T>(randomIndex);
+    //    return val;
+    //}
+
+    public static List<T> Without<T>(List<T> toRemove)
+    {
+        List<T> wantedValues = System.Enum.GetValues(typeof(T)).Cast<T>().ToList();
+        foreach(T t in toRemove)
         {
-            exclusionIndices.Add(IndexOf<T>(exclusion));
+            wantedValues.Remove(t);
         }
 
-        int randomIndex = RandomHelper.Exclude(0, values.Length, exclusionIndices);
-        T val = GetAtIndex<T>(randomIndex);
-        return val;
+        return wantedValues;
     }
 }
