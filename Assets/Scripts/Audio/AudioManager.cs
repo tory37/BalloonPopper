@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource = null;
 
     [Header("Audio Clips")]
-    [SerializeField] private AudioClip clipBalloonPop = null;
+    [SerializeField] private SoundClipToAudioClip audioClips = new SoundClipToAudioClip();
     #endregion
 
     // This doesn't need to be serialized, but we will leave for testing purposes, to easily see the pitch each time in the inspector
@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
     {
         //test trigger for audio clip
         if (Input.GetKeyDown("return")){
-            PlayBalloonPop();
+            PlayShiftedClip(SoundClip.BALLOON_POP);
         }
     }
     #endregion
@@ -68,25 +68,22 @@ public class AudioManager : MonoBehaviour
     #region Triggers
 
     // This will be where you shift actually apply the shift
-    private void playShiftedClip(AudioClip clip)
+    public static void PlayShiftedClip(SoundClip clip)
     {
-        instance.audioSource.clip = clip;
+        instance.audioSource.clip = instance.audioClips[clip];
         instance.pitchValue = instance.getRandomPitch();
         instance.audioSource.pitch = instance.pitchValue;
         instance.audioSource.Play();
-        Debug.Log("Pitch Value: " + pitchValue);
+        Debug.Log("Pitch Value: " + instance.pitchValue);
     }
 
-    private void playUnshiftedClip(AudioClip clip)
+    public static void PlayUnshiftedClip(SoundClip clip)
     {
-        instance.audioSource.clip = clip;
+        instance.audioSource.clip = instance.audioClips[clip];
         instance.audioSource.pitch = 1.0f;
         instance.audioSource.Play();
     }
 
-    public static void PlayBalloonPop()
-    {
-        instance.playShiftedClip(instance.clipBalloonPop);
-    }
+    
     #endregion
 }
