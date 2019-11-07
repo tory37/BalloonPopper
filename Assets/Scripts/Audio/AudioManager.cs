@@ -71,14 +71,16 @@ public class AudioManager : MonoBehaviour
     private void playShiftedClip(AudioClip clip)
     {
         instance.audioSource.clip = clip;
-        instance.audioSource.Play();
         instance.pitchValue = instance.getRandomPitch();
+        instance.audioSource.pitch = instance.pitchValue;
+        instance.audioSource.Play();
         Debug.Log("Pitch Value: " + pitchValue);
     }
 
     private void playUnshiftedClip(AudioClip clip)
     {
         instance.audioSource.clip = clip;
+        instance.audioSource.pitch = 1.0f;
         instance.audioSource.Play();
     }
 
