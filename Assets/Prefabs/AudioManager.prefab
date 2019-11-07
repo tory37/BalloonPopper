@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4722087931642980155}
   - component: {fileID: 4722087931642980153}
   m_Layer: 0
-  m_Name: AudioPrefab
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4722087931642980156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.65045846, y: 1.369802, z: -0.47193527}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 55d50bcb99798433db56ccc834bff0cc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: -0.01
@@ -142,4 +142,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchValue: 1
   audioSource: {fileID: 4722087931642980155}
-  audioClip: {fileID: 8300000, guid: 55d50bcb99798433db56ccc834bff0cc, type: 3}
+  clipBalloonPop: {fileID: 8300000, guid: 55d50bcb99798433db56ccc834bff0cc, type: 3}
