@@ -405,6 +405,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1919992077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2122960449, guid: 0e5f5f4342296dc428612011afb0ed05,
+    type: 3}
+  m_PrefabInstance: {fileID: 4096968260810721111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1919992079
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919992077}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ec46015c4c284291a0a569b8b4c5ee6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2024807059
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,11 +791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2122960450, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.65
+      value: 0.33433333
       objectReference: {fileID: 0}
     - target: {fileID: 2122960450, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.32
+      value: 0.30261377
       objectReference: {fileID: 0}
     - target: {fileID: 2122960450, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
       propertyPath: m_AnchorMax.y
@@ -778,11 +803,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2122960450, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -30
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 2122960450, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -30
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122960450, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122960450, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 204938638, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1034,7 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 591707862, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 591707863, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
       propertyPath: m_AnchorMin.y
@@ -1448,6 +1481,19 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0.85
       objectReference: {fileID: 0}
+    - target: {fileID: 1956281484, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122960452, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6601565724527374486, guid: 4919166bb3d294c6d8c1516cfd1f9a4f,
+        type: 3}
+    - target: {fileID: 2122960452, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e5f5f4342296dc428612011afb0ed05, type: 3}
 --- !u!1001 &6781140954596139251
@@ -1516,6 +1562,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188218893805242032, guid: a2562c3e392765e4babfe7d29718c763,
+        type: 3}
+      propertyPath: currentGameMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188218893805242032, guid: a2562c3e392765e4babfe7d29718c763,
+        type: 3}
+      propertyPath: balloonPopTriggerKey
+      value: Pop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2562c3e392765e4babfe7d29718c763, type: 3}

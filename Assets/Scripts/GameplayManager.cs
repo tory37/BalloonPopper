@@ -69,6 +69,7 @@ public class GameplayManager : MonoBehaviour
     public void OnBalloonPopped(Balloon balloon)
     { 
         AudioManager.PlayShiftedClip(SoundClip.BALLOON_POP);
+        balloon.TriggerPopAnimation();
         // Handle score and timer
         // If Balloon is correct
         if (balloon.Color == instance.currentDisplayColor) {

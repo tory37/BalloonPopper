@@ -10,4 +10,9 @@ public class Balloon : MonoBehaviour
     {
         GameplayManager.RegisterStartingBalloon(Color);
     }
+
+    public void TriggerPopAnimation()
+    {
+        GetComponent<Animator>().SetTrigger(GameMaster.GetBalloonPopTriggerKey());
+    }
 }

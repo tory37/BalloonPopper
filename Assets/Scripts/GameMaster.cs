@@ -8,6 +8,7 @@ public class GameMaster : MonoBehaviour
     private static GameMaster instance = null;
 
     [SerializeField] private GameSceneToString sceneNames = new GameSceneToString();
+    [SerializeField] private string balloonPopTriggerKey = "";
 
     #region Data
     [SerializeField] private GameMode currentGameMode;
@@ -64,5 +65,10 @@ public class GameMaster : MonoBehaviour
 
     public static void GoToScene(GameScene scene) {
         SceneManager.LoadScene(instance.sceneNames[scene]);
+    }
+
+    public static string GetBalloonPopTriggerKey()
+    {
+        return instance.balloonPopTriggerKey;
     }
 }
