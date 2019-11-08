@@ -45,7 +45,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 55d50bcb99798433db56ccc834bff0cc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: -0.01
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -140,6 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80a4a9d3b83f46688ce3230eedee893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchValue: 1
   audioSource: {fileID: 4722087931642980155}
-  clipBalloonPop: {fileID: 8300000, guid: 55d50bcb99798433db56ccc834bff0cc, type: 3}
+  audioClips:
+    m_keys: 00000000
+    m_values:
+    - {fileID: 8300000, guid: 55d50bcb99798433db56ccc834bff0cc, type: 3}
+  pitchValue: 1
