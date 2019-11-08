@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: f19e5e2476d024caf98922a2c359c776
+guid: 6c2fe1c2b742f4978bfd48a986724191
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6879125525941001682
-    second: BalloonsOrange-01_0
+      213: -6627423388518695836
+    second: BalloonGrayScale-01_0
   - first:
-      213: 6764618888693486343
-    second: BalloonsOrange-01_1
+      213: -4862434934176448605
+    second: BalloonGrayScale-01_1
   - first:
-      213: 1717057227938182337
-    second: BalloonsOrange-01_2
+      213: -4922210717286097232
+    second: BalloonGrayScale-01_2
   - first:
-      213: -5654471827829277803
-    second: BalloonsOrange-01_3
+      213: 5564085443973190831
+    second: BalloonGrayScale-01_3
   - first:
-      213: -1023368904161654568
-    second: BalloonsOrange-01_4
+      213: 4284990526516884958
+    second: BalloonGrayScale-01_4
   - first:
-      213: -9151012066127008976
-    second: BalloonsOrange-01_5
+      213: 8417269317381517875
+    second: BalloonGrayScale-01_5
   - first:
-      213: -7803293926638365463
-    second: BalloonsOrange-01_6
+      213: 568931227907737198
+    second: BalloonGrayScale-01_6
   - first:
-      213: 7644245585303813843
-    second: BalloonsOrange-01_7
+      213: 7671235761957800583
+    second: BalloonGrayScale-01_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BalloonsOrange-01_0
+      name: BalloonGrayScale-01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 414
-        height: 1042
+        y: 18
+        width: 412
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d42349f40eef4c2191a5b7219ad3d20
-      internalID: 6879125525941001682
+      spriteID: d5e083ac982d54d8b80bf2e480de08d2
+      internalID: -6627423388518695836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BalloonsOrange-01_1
+      name: BalloonGrayScale-01_1
       rect:
         serializedVersion: 2
-        x: 414
-        y: 0
-        width: 414
-        height: 1042
+        x: 412
+        y: 18
+        width: 412
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36cb61b8e695e459ba1003ed11b92488
-      internalID: 6764618888693486343
+      spriteID: 8d92497e4ef384e02bbe0c19c6a0bc6d
+      internalID: -4862434934176448605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BalloonsOrange-01_2
+      name: BalloonGrayScale-01_2
       rect:
         serializedVersion: 2
-        x: 828
-        y: 0
-        width: 414
-        height: 1042
+        x: 824
+        y: 18
+        width: 412
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baec9793714684c38be2b2485649d26b
-      internalID: 1717057227938182337
+      spriteID: d93a87f0ece27491bb1f7f1adb8ed8b2
+      internalID: -4922210717286097232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BalloonsOrange-01_3
+      name: BalloonGrayScale-01_3
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 0
-        width: 414
-        height: 1042
+        x: 1236
+        y: 18
+        width: 412
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e471e9a530f74a62a40fafa9eb6da14
-      internalID: -5654471827829277803
+      spriteID: 273defd80da8e4023a2a2f404de561fe
+      internalID: 5564085443973190831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BalloonsOrange-01_4
+      name: BalloonGrayScale-01_4
       rect:
         serializedVersion: 2
-        x: 1656
-        y: 0
-        width: 414
-        height: 1042
+        x: 1648
+        y: 18
+        width: 412
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df5c60a30881b4c93b3b975834627e70
-      internalID: -1023368904161654568
+      spriteID: 18ec7ebec22b949bbb2135599f6360f0
+      internalID: 4284990526516884958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BalloonsOrange-01_5
+      name: BalloonGrayScale-01_5
       rect:
         serializedVersion: 2
-        x: 2070
-        y: 0
-        width: 414
-        height: 1042
+        x: 2060
+        y: 18
+        width: 412
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c7493a4fcefd4ee0bcb17137c23e1db
-      internalID: -9151012066127008976
+      spriteID: f1146b7319e33471c9212256d97b20c4
+      internalID: 8417269317381517875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BalloonsOrange-01_6
+      name: BalloonGrayScale-01_6
       rect:
         serializedVersion: 2
-        x: 2484
-        y: 0
-        width: 414
-        height: 1042
+        x: 2472
+        y: 18
+        width: 412
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,19 +250,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1562cf41d8cc4774a64b605b5b94f7d
-      internalID: -7803293926638365463
+      spriteID: 9c64f967e8c4d44a98c6937f659e7eb5
+      internalID: 568931227907737198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BalloonsOrange-01_7
+      name: BalloonGrayScale-01_7
       rect:
         serializedVersion: 2
         x: 2948
-        y: 139
-        width: 259
+        y: 96
+        width: 270
         height: 807
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bed16ade141348d4861e4bc8aea4378
-      internalID: 7644245585303813843
+      spriteID: cc9399886bc55466d909f8892c331e73
+      internalID: 7671235761957800583
       vertices: []
       indices: 
       edges: []
@@ -280,7 +280,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3740d9c8c7ea1452c9b47082751c0cec
+    spriteID: ae0742cedc3d043f4b58a361bb5b6bcd
     internalID: 0
     vertices: []
     indices: 
