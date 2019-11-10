@@ -29,6 +29,7 @@ public class GameplayMenuManager : MonoBehaviour
     [SerializeField] private Image notificationImage = null;
     [SerializeField] private Sprite emptySprite = null;
     [SerializeField] private BalloonColorToSprite balloonsSprites = new BalloonColorToSprite();
+    [SerializeField] private BalloonColorToColor balloonColors = new BalloonColorToColor();
 
     [Header("Vars")]
     [SerializeField] private Color timerSliderFullColor = Color.green;
@@ -110,7 +111,7 @@ public class GameplayMenuManager : MonoBehaviour
     public static void SetBalloon(Balloon clickedBallon, BalloonColor color)
     {
         Image balloonImage = clickedBallon.GetComponent<Image>();
-        balloonImage.sprite = instance.balloonsSprites[color];
+        balloonImage.color = instance.balloonColors[color];
         clickedBallon.Color = color;
     }
 
@@ -141,6 +142,11 @@ public class GameplayMenuManager : MonoBehaviour
                 entry.Value.gameObject.SetActive(false);
             }
         }
+    }
+
+    public static Color GetBalloonColor(BalloonColor color)
+    {
+        return instance.balloonColors[color];
     }
     #endregion
 }

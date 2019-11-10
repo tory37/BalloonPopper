@@ -60,9 +60,11 @@ public class GameplayManager : MonoBehaviour
     #endregion
 
     #region Balloons
-    public static void RegisterStartingBalloon(BalloonColor color)
+    public static void RegisterStartingBalloon(Balloon balloon)
     {
-        instance.currentBalloonColors.Add(color);
+        BalloonColor newColor = instance.getAvailableBalloonColor();
+        balloon.SetColor(newColor);
+        instance.currentBalloonColors.Add(newColor);
         instance.setNextDisplayBalloon();
     }
 
@@ -86,8 +88,8 @@ public class GameplayManager : MonoBehaviour
         }
 
         // Setup next balloon
-        List<BalloonColor> possibleColors = EnumHelper.Without<BalloonColor>(instance.currentBalloonColors);
-        BalloonColor nextColor = possibleColors[Random.Range(0, possibleColors.Count)];
+
+        BalloonColor nextColor = instance.getAvailableBalloonColor();
         instance.currentBalloonColors.Remove(balloon.Color);
         instance.currentBalloonColors.Add(nextColor);
         GameplayMenuManager.SetBalloon(balloon, nextColor);
@@ -100,6 +102,13 @@ public class GameplayManager : MonoBehaviour
         BalloonColor randomPoppableBalloonColor = instance.currentBalloonColors[randomColorIndex];
         instance.currentDisplayColor = randomPoppableBalloonColor;
         GameplayMenuManager.SetDisplayBalloon(randomPoppableBalloonColor);
+    }
+
+    private BalloonColor getAvailableBalloonColor()
+    {
+        List<BalloonColor> possibleColors = EnumHelper.Without<BalloonColor>(instance.currentBalloonColors);
+        BalloonColor newColor = possibleColors[Random.Range(0, possibleColors.Count)];
+        return newColor;
     }
     #endregion
 
