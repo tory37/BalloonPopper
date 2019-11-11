@@ -5,7 +5,15 @@ using UnityEngine.UI;
 
 public class Balloon : MonoBehaviour
 {
-    public BalloonColor Color;
+    [SerializeField] private BalloonColor color;
+
+    [Header("Components")]
+    [SerializeField] private Animator outterAnim = null;
+    [SerializeField] private Animator innerAnim = null;
+    [SerializeField] private Image outterImage = null;
+
+    [Header("Keys")]
+    [SerializeField] private string triggerKey = "";
 
     private void Start()
     {
@@ -14,11 +22,18 @@ public class Balloon : MonoBehaviour
 
     public void TriggerPopAnimation()
     {
-        GetComponent<Animator>().SetTrigger(GameMaster.GetBalloonPopTriggerKey());
+        outterAnim.SetTrigger(triggerKey);
+        innerAnim.SetTrigger(triggerKey);
     }
 
-    public void SetColor(BalloonColor color)
+    public BalloonColor GetColor()
     {
-        GetComponent<Image>().color = GameplayMenuManager.GetBalloonColor(color);
+        return color;
+    }
+
+    public void SetColor(BalloonColor newColor)
+    {
+        color = newColor;
+        outterImage.color = GameplayMenuManager.GetBalloonColor(color);
     }
 }

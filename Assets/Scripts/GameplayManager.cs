@@ -74,7 +74,7 @@ public class GameplayManager : MonoBehaviour
         balloon.TriggerPopAnimation();
         // Handle score and timer
         // If Balloon is correct
-        if (balloon.Color == instance.currentDisplayColor) {
+        if (balloon.GetColor() == instance.currentDisplayColor) {
             instance.modifyTimer(instance.timeIncrementPerRightBalloon);
             instance.currentTimerDecrement += instance.timerDecrementIncreasePerBalloon;
             ScoreManager.IncrementRecentScore();
@@ -90,7 +90,7 @@ public class GameplayManager : MonoBehaviour
         // Setup next balloon
 
         BalloonColor nextColor = instance.getAvailableBalloonColor();
-        instance.currentBalloonColors.Remove(balloon.Color);
+        instance.currentBalloonColors.Remove(balloon.GetColor());
         instance.currentBalloonColors.Add(nextColor);
         GameplayMenuManager.SetBalloon(balloon, nextColor);
         instance.setNextDisplayBalloon();

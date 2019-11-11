@@ -45,6 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingTimer: 1000
   startingTimerDecrement: 100
-  timerDecrementIncreasePerBalloon: 1
+  timerDecrementIncreasePerBalloon: 10
   timeIncrementPerRightBalloon: 50
-  timeDecrementPerWrongBalloon: 50
+  timeDecrementPerWrongBalloon: 75
