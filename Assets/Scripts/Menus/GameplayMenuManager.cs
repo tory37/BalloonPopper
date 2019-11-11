@@ -23,12 +23,12 @@ public class GameplayMenuManager : MonoBehaviour
     [SerializeField] private Image timerSliderImage = null;
     [SerializeField] private Text scoreText = null;
     [SerializeField] private GameModeToRectTransform gameModePanels = new GameModeToRectTransform();
+    [SerializeField] private Image notificationImage = null;
 
     [Header("Sprites")]
     [SerializeField] private NotificationTypeToSpriteList notificationAnimations = new NotificationTypeToSpriteList();
-    [SerializeField] private Image notificationImage = null;
     [SerializeField] private Sprite emptySprite = null;
-    [SerializeField] private BalloonColorToSprite balloonsSprites = new BalloonColorToSprite();
+    [SerializeField] private BalloonColorToColor balloonColors = new BalloonColorToColor();
 
     [Header("Vars")]
     [SerializeField] private Color timerSliderFullColor = Color.green;
@@ -109,16 +109,12 @@ public class GameplayMenuManager : MonoBehaviour
     #region Balloons
     public static void SetBalloon(Balloon clickedBallon, BalloonColor color)
     {
-        Image balloonImage = clickedBallon.GetComponent<Image>();
-        balloonImage.sprite = instance.balloonsSprites[color];
-        clickedBallon.Color = color;
+        clickedBallon.SetColor(color);
     }
 
     public static void SetDisplayBalloon(BalloonColor color)
     {
-        Debug.Log("Changing display to " + color.ToString());
-        instance.displayBalloon.sprite = instance.balloonsSprites[color];
-        Debug.Log(instance.balloonsSprites[color]);
+        instance.displayBalloon.color = instance.balloonColors[color];
     }
 
     private void disableAllBalloonPanels()
@@ -141,6 +137,11 @@ public class GameplayMenuManager : MonoBehaviour
                 entry.Value.gameObject.SetActive(false);
             }
         }
+    }
+
+    public static Color GetBalloonColor(BalloonColor color)
+    {
+        return instance.balloonColors[color];
     }
     #endregion
 }

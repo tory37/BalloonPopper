@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2533c6374ed44276b1627d46a85ccc6
+guid: 39dbcc54c103c4549a348a4d7cef3dba
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -118,13 +118,13 @@ TextureImporter:
         width: 414
         height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 099bd1fec92774bb08cfff126a17aea5
+      spriteID: bf2f0435e2b824e6881cd5d6e366a60d
       internalID: 8375125063641576263
       vertices: []
       indices: 
@@ -139,13 +139,13 @@ TextureImporter:
         width: 414
         height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff2dc34108799414083a5e2e5f25c155
+      spriteID: c41d96bc494bb4acc9344720504167d9
       internalID: 1161956341444408744
       vertices: []
       indices: 
@@ -160,13 +160,13 @@ TextureImporter:
         width: 414
         height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dab648aca2d34c3fb033817bbb82550
+      spriteID: 1c73a59f377de4f91a2e20c9383bf1cc
       internalID: -5597004721406504813
       vertices: []
       indices: 
@@ -176,18 +176,18 @@ TextureImporter:
       name: BalloonInner_3
       rect:
         serializedVersion: 2
-        x: 1355
-        y: 53
-        width: 452
-        height: 958
+        x: 1242
+        y: 18
+        width: 414
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5385e9ac7f4d4ff788f6282eba4fd55
+      spriteID: 27c678d7813ae4f81b4a0691d552b013
       internalID: 1162212513041286710
       vertices: []
       indices: 
@@ -197,18 +197,18 @@ TextureImporter:
       name: BalloonInner_4
       rect:
         serializedVersion: 2
-        x: 1936
-        y: 85
-        width: 409
-        height: 894
+        x: 1656
+        y: 18
+        width: 414
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61b58c7e1cc634afa93ec5e6017c8ffb
+      spriteID: 4dd6416ff390d4b36b3e28c68f9aa33a
       internalID: -8609162538339749098
       vertices: []
       indices: 
@@ -218,18 +218,18 @@ TextureImporter:
       name: BalloonInner_5
       rect:
         serializedVersion: 2
-        x: 2518
-        y: 85
-        width: 280
-        height: 904
+        x: 2070
+        y: 18
+        width: 414
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b421c6ea0bb754c3fa219cf46fcd0d3f
+      spriteID: fd9398743f04246f9b31d426c554612a
       internalID: 919272396497360661
       vertices: []
       indices: 
@@ -239,18 +239,18 @@ TextureImporter:
       name: BalloonInner_6
       rect:
         serializedVersion: 2
-        x: 2948
-        y: 106
-        width: 334
-        height: 797
+        x: 2484
+        y: 18
+        width: 414
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e76c5d7f4ca6d411685373d17e960920
+      spriteID: e5943d5ec522d4950a8e253284a7f1dd
       internalID: 122592881687228340
       vertices: []
       indices: 
@@ -260,10 +260,10 @@ TextureImporter:
       name: BalloonInner_7
       rect:
         serializedVersion: 2
-        x: 2787
+        x: 2905
         y: 63
-        width: 312
-        height: 948
+        width: 345
+        height: 862
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,7 +271,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 687e4eb6125004f078211e131357c244
+      spriteID: 3d812f74f603e445a8f0935581b4d978
       internalID: -5720461482080286893
       vertices: []
       indices: 
@@ -280,7 +280,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d7a27ff15e9e54f8a8a9e6a77c9c7d65
+    spriteID: fc7da618b6fe94e95b500beaf4b5d919
     internalID: 0
     vertices: []
     indices: 
