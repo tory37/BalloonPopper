@@ -1626,7 +1626,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1107734910}
-        m_MethodName: OnTrigger
+        m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1688,6 +1688,7 @@ MonoBehaviour:
   _coolDownSeconds: 10
   disabledCover: {fileID: 473879451}
   availableCount: {fileID: 1020755594}
+  type: 0
   pauseDuration: 5
 --- !u!1001 &1116583736
 PrefabInstance:
