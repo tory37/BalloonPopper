@@ -144,5 +144,5 @@ MonoBehaviour:
   audioClips:
     m_keys: 00000000
     m_values:
-    - {fileID: 8300000, guid: 55d50bcb99798433db56ccc834bff0cc, type: 3}
+    - {fileID: 8300000, guid: 1b1d2ab4e144a49d99b1dff62b18dd18, type: 3}
   pitchValue: 1

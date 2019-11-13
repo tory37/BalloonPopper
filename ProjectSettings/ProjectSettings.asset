@@ -163,7 +163,8 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.Landon.BalloonPopper
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
@@ -279,7 +280,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 80b66dc2cf71f0945bc777a73250eb67, type: 3}
+      m_Icon: {fileID: 2800000, guid: 926981b6629f346f8be05bb55235b3ee, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
