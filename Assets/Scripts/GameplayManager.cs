@@ -20,6 +20,7 @@ public class GameplayManager : MonoBehaviour
     private float currentTimerDecrement = 0;
     private List<BalloonColor> currentBalloonColors = new List<BalloonColor>();
     private BalloonColor currentDisplayColor;
+    private Dictionary<PowerupType, int> availablePowerups = new Dictionary<PowerupType, int>();
 
     #region Initialization
     void Awake()
@@ -27,6 +28,8 @@ public class GameplayManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            //TODO: Load this from saved data
+            instance.availablePowerups.Add(PowerupType.PAUSE_TIMER, 5);
         } 
         else
         {
@@ -128,6 +131,72 @@ public class GameplayManager : MonoBehaviour
         instance.currentTimerDecrement = 0;
         GameMaster.SetLatestScore(ScoreManager.GetRecentScore());
         GameMaster.GoToScene(GameScene.GAME_OVER);
+    }
+    #endregion
+
+    #region Mods
+    private enum Stat
+    {
+        DECREMENT,
+        DECREMENT_INCREASE_PER_BALLOON,
+        INCREMENT_PER_RIGHT_BALLOON,
+        DECREMENT_PER_WRONG_BALLOON
+    }
+
+    public static void PauseTimer(float duration)
+    {
+        instance.StartCoroutine(instance.modStat(Stat.DECREMENT, 0, duration));
+        instance.StartCoroutine(instance.modStat(Stat.DECREMENT_PER_WRONG_BALLOON, 0, duration));
+        instance.StartCoroutine(instance.modStat(Stat.INCREMENT_PER_RIGHT_BALLOON, 0, duration));
+    }
+
+    private IEnumerator modStat(Stat stat, float newValue, float duration)
+    {
+        float trueStat = 0f;
+
+        switch (stat) {
+            case Stat.DECREMENT:
+                trueStat = instance.currentTimerDecrement;
+                instance.currentTimerDecrement = newValue;
+                yield return new WaitForSeconds(duration);
+                instance.currentTimerDecrement = trueStat;
+                break;
+            case Stat.DECREMENT_INCREASE_PER_BALLOON:
+                trueStat = instance.timerDecrementIncreasePerBalloon;
+                instance.timerDecrementIncreasePerBalloon = newValue;
+                yield return new WaitForSeconds(duration);
+                instance.timerDecrementIncreasePerBalloon = trueStat;
+                break;
+            case Stat.DECREMENT_PER_WRONG_BALLOON:
+                trueStat = instance.timeDecrementPerWrongBalloon;
+                instance.timeDecrementPerWrongBalloon = newValue;
+                yield return new WaitForSeconds(duration);
+                instance.timeDecrementPerWrongBalloon = trueStat;
+                break;
+            case Stat.INCREMENT_PER_RIGHT_BALLOON:
+                trueStat = instance.timeIncrementPerRightBalloon;
+                instance.timeIncrementPerRightBalloon = newValue;
+                yield return new WaitForSeconds(duration);
+                instance.timeIncrementPerRightBalloon = trueStat;
+                break;
+        };
+    }
+    #endregion
+
+    #region Powerups
+    public static int GetAvailablePowerups(PowerupType type)
+    {
+        return instance.availablePowerups[type];
+    }
+
+    public static bool CanUserPowerup(PowerupType type)
+    {
+        return instance.availablePowerups[type] > 0;
+    }
+
+    public static void UsePowerup(PowerupType type)
+    {
+        instance.availablePowerups[type]--;
     }
     #endregion
 }
