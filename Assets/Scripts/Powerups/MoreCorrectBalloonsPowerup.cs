@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoreCorrectBalloonsPowerup : BasePowerup
 {
-    [SerializeField] private float pauseDuration = 0f;
+    [SerializeField] private float duration = 0f;
 
     public void Trigger()
     {
@@ -15,7 +15,7 @@ public class MoreCorrectBalloonsPowerup : BasePowerup
     {
         if (base.OnTrigger())
         {
-            GameplayManager.PauseTimer(pauseDuration);
+            GameplayManager.AddExtraCorrectBalloon(duration);
             return true;
         }
 

@@ -14,15 +14,16 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private float timerDecrementIncreasePerBalloon = 0;
     [SerializeField] private float timeIncrementPerRightBalloon = 0;
     [SerializeField] private float timeDecrementPerWrongBalloon = 0;
-    [SerializeField] private int numberCorrectChoices = 1;
     #endregion
 
+    [Header("For Testing")]
     private float currentTimer = 1000;
     private float currentTimerDecrement = 0;
     private List<BalloonColor> currentBalloonColors = new List<BalloonColor>();
     private BalloonColor currentDisplayColor;
     private Dictionary<PowerupType, int> availablePowerups = new Dictionary<PowerupType, int>();
     private List<Balloon> balloons = null;
+    [SerializeField] private int numberCorrectChoices = 2;
 
     #region Initialization
     void Awake()
@@ -69,20 +70,36 @@ public class GameplayManager : MonoBehaviour
     public static void RegisterStartingBalloon(Balloon balloon)
     {
         instance.balloons.Add(balloon);
-        instance.ResetBalloonColors();
+        instance.resetBalloonColors();
     }
 
-    private void ResetBalloonColors()
+    private void resetBalloonColors()
     {
         instance.currentBalloonColors = new List<BalloonColor>();
-        foreach (Balloon balloon in instance.balloons)
+        BalloonColor correctColor = instance.getAvailableBalloonColor();
+        instance.currentBalloonColors.Add(correctColor);
+
+        List<int> correctBalloonPositions = new List<int>();
+        for (int i = 0; i < instance.numberCorrectChoices; i++)
         {
-            BalloonColor newColor = instance.getAvailableBalloonColor();
-            balloon.SetColor(newColor);
-            instance.currentBalloonColors.Add(newColor);
+            correctBalloonPositions.Add(RandomHelper.WithExclusions(0, instance.balloons.Count, correctBalloonPositions));
         }
 
-        instance.setNextDisplayBalloon();
+        for(int i = 0; i < instance.balloons.Count; i++) { 
+            BalloonColor newColor;
+
+            if (correctBalloonPositions.Contains(i)) {
+                newColor = correctColor;
+            } else
+            {
+                newColor = instance.getAvailableBalloonColor();
+                instance.currentBalloonColors.Add(newColor);
+            }
+            
+            instance.balloons[i].SetColor(newColor);
+        }
+
+        instance.setNextDisplayBalloon(correctColor);
     }
 
     public void OnBalloonPopped(Balloon balloon)
@@ -106,15 +123,13 @@ public class GameplayManager : MonoBehaviour
 
         // Setup next balloon
 
-        instance.ResetBalloonColors();
+        instance.resetBalloonColors();
     }
 
-    private void setNextDisplayBalloon()
+    private void setNextDisplayBalloon(BalloonColor correctColor)
     {
-        int randomColorIndex = Random.Range(0, instance.currentBalloonColors.Count);
-        BalloonColor randomPoppableBalloonColor = instance.currentBalloonColors[randomColorIndex];
-        instance.currentDisplayColor = randomPoppableBalloonColor;
-        GameplayMenuManager.SetDisplayBalloon(randomPoppableBalloonColor);
+        instance.currentDisplayColor = correctColor;
+        GameplayMenuManager.SetDisplayBalloon(correctColor);
     }
 
     private BalloonColor getAvailableBalloonColor()
@@ -150,46 +165,60 @@ public class GameplayManager : MonoBehaviour
         DECREMENT,
         DECREMENT_INCREASE_PER_BALLOON,
         INCREMENT_PER_RIGHT_BALLOON,
-        DECREMENT_PER_WRONG_BALLOON
+        DECREMENT_PER_WRONG_BALLOON,
+        NUMBER_CORRECT_CHOICES
     }
 
     public static void PauseTimer(float duration)
     {
-        instance.StartCoroutine(instance.modStat(Stat.DECREMENT, 0, duration));
-        instance.StartCoroutine(instance.modStat(Stat.DECREMENT_PER_WRONG_BALLOON, 0, duration));
-        instance.StartCoroutine(instance.modStat(Stat.INCREMENT_PER_RIGHT_BALLOON, 0, duration));
+        instance.StartCoroutine(instance.modFloat(Stat.DECREMENT, 0, duration));
+        instance.StartCoroutine(instance.modFloat(Stat.DECREMENT_PER_WRONG_BALLOON, 0, duration));
+        instance.StartCoroutine(instance.modFloat(Stat.INCREMENT_PER_RIGHT_BALLOON, 0, duration));
     }
 
-    private IEnumerator modStat(Stat stat, float newValue, float duration)
+    public static void AddExtraCorrectBalloon(float duration)
     {
-        float trueStat = 0f;
+        instance.StartCoroutine(instance.addCorrectChoice(duration));
+        instance.resetBalloonColors();
+    }
+
+    private IEnumerator modFloat(Stat stat, float newValue, float duration)
+    {
+        float origFloat;
 
         switch (stat) {
             case Stat.DECREMENT:
-                trueStat = instance.currentTimerDecrement;
+                origFloat = instance.currentTimerDecrement;
                 instance.currentTimerDecrement = newValue;
                 yield return new WaitForSeconds(duration);
-                instance.currentTimerDecrement = trueStat;
+                instance.currentTimerDecrement = origFloat;
                 break;
             case Stat.DECREMENT_INCREASE_PER_BALLOON:
-                trueStat = instance.timerDecrementIncreasePerBalloon;
+                origFloat = instance.timerDecrementIncreasePerBalloon;
                 instance.timerDecrementIncreasePerBalloon = newValue;
                 yield return new WaitForSeconds(duration);
-                instance.timerDecrementIncreasePerBalloon = trueStat;
+                instance.timerDecrementIncreasePerBalloon = origFloat;
                 break;
             case Stat.DECREMENT_PER_WRONG_BALLOON:
-                trueStat = instance.timeDecrementPerWrongBalloon;
+                origFloat = instance.timeDecrementPerWrongBalloon;
                 instance.timeDecrementPerWrongBalloon = newValue;
                 yield return new WaitForSeconds(duration);
-                instance.timeDecrementPerWrongBalloon = trueStat;
+                instance.timeDecrementPerWrongBalloon = origFloat;
                 break;
             case Stat.INCREMENT_PER_RIGHT_BALLOON:
-                trueStat = instance.timeIncrementPerRightBalloon;
+                origFloat = instance.timeIncrementPerRightBalloon;
                 instance.timeIncrementPerRightBalloon = newValue;
                 yield return new WaitForSeconds(duration);
-                instance.timeIncrementPerRightBalloon = trueStat;
+                instance.timeIncrementPerRightBalloon = origFloat;
                 break;
         };
+    }
+
+    private IEnumerator addCorrectChoice(float duration)
+    {
+        instance.numberCorrectChoices++;
+        yield return new WaitForSeconds(duration);
+        instance.numberCorrectChoices--;
     }
     #endregion
 
