@@ -4,5 +4,6 @@ using UnityEngine;
 
 public enum PowerupType
 {
-   PAUSE_TIMER
+   PAUSE_TIMER,
+   MORE_RIGHT_BALLOONS
 }

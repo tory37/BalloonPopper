@@ -14,6 +14,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private float timerDecrementIncreasePerBalloon = 0;
     [SerializeField] private float timeIncrementPerRightBalloon = 0;
     [SerializeField] private float timeDecrementPerWrongBalloon = 0;
+    [SerializeField] private int numberCorrectChoices = 1;
     #endregion
 
     private float currentTimer = 1000;
@@ -21,6 +22,7 @@ public class GameplayManager : MonoBehaviour
     private List<BalloonColor> currentBalloonColors = new List<BalloonColor>();
     private BalloonColor currentDisplayColor;
     private Dictionary<PowerupType, int> availablePowerups = new Dictionary<PowerupType, int>();
+    private List<Balloon> balloons = null;
 
     #region Initialization
     void Awake()
@@ -30,6 +32,7 @@ public class GameplayManager : MonoBehaviour
             instance = this;
             //TODO: Load this from saved data
             instance.availablePowerups.Add(PowerupType.PAUSE_TIMER, 5);
+            instance.balloons = new List<Balloon>();
         } 
         else
         {
@@ -65,9 +68,20 @@ public class GameplayManager : MonoBehaviour
     #region Balloons
     public static void RegisterStartingBalloon(Balloon balloon)
     {
-        BalloonColor newColor = instance.getAvailableBalloonColor();
-        balloon.SetColor(newColor);
-        instance.currentBalloonColors.Add(newColor);
+        instance.balloons.Add(balloon);
+        instance.ResetBalloonColors();
+    }
+
+    private void ResetBalloonColors()
+    {
+        instance.currentBalloonColors = new List<BalloonColor>();
+        foreach (Balloon balloon in instance.balloons)
+        {
+            BalloonColor newColor = instance.getAvailableBalloonColor();
+            balloon.SetColor(newColor);
+            instance.currentBalloonColors.Add(newColor);
+        }
+
         instance.setNextDisplayBalloon();
     }
 
@@ -92,11 +106,7 @@ public class GameplayManager : MonoBehaviour
 
         // Setup next balloon
 
-        BalloonColor nextColor = instance.getAvailableBalloonColor();
-        instance.currentBalloonColors.Remove(balloon.GetColor());
-        instance.currentBalloonColors.Add(nextColor);
-        GameplayMenuManager.SetBalloon(balloon, nextColor);
-        instance.setNextDisplayBalloon();
+        instance.ResetBalloonColors();
     }
 
     private void setNextDisplayBalloon()
