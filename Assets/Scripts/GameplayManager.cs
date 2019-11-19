@@ -23,6 +23,7 @@ public class GameplayManager : MonoBehaviour
     private BalloonColor currentDisplayColor;
     private Dictionary<PowerupType, int> availablePowerups = new Dictionary<PowerupType, int>();
     private List<Balloon> balloons = null;
+    private bool isDoublePoints = false;
     [SerializeField] private int numberCorrectChoices = 2;
 
     #region Initialization
@@ -33,6 +34,8 @@ public class GameplayManager : MonoBehaviour
             instance = this;
             //TODO: Load this from saved data
             instance.availablePowerups.Add(PowerupType.PAUSE_TIMER, 5);
+            instance.availablePowerups.Add(PowerupType.MORE_RIGHT_BALLOONS, 5);
+            instance.availablePowerups.Add(PowerupType.DOUBLE_POINTS, 5);
             instance.balloons = new List<Balloon>();
         } 
         else
@@ -111,7 +114,7 @@ public class GameplayManager : MonoBehaviour
         if (balloon.GetColor() == instance.currentDisplayColor) {
             instance.modifyTimer(instance.timeIncrementPerRightBalloon);
             instance.currentTimerDecrement += instance.timerDecrementIncreasePerBalloon;
-            ScoreManager.IncrementRecentScore();
+            instance.incrementScore();
             GameplayMenuManager.DisplayNotification(NotificationType.RIGHT);
         }
         // If Balloon is not correct
@@ -137,6 +140,15 @@ public class GameplayManager : MonoBehaviour
         List<BalloonColor> possibleColors = EnumHelper.Without<BalloonColor>(instance.currentBalloonColors);
         BalloonColor newColor = possibleColors[Random.Range(0, possibleColors.Count)];
         return newColor;
+    }
+
+    private void incrementScore()
+    {
+        ScoreManager.IncrementRecentScore();
+        if (instance.isDoublePoints)
+        {
+            ScoreManager.IncrementRecentScore();
+        }
     }
     #endregion
 
@@ -167,19 +179,6 @@ public class GameplayManager : MonoBehaviour
         INCREMENT_PER_RIGHT_BALLOON,
         DECREMENT_PER_WRONG_BALLOON,
         NUMBER_CORRECT_CHOICES
-    }
-
-    public static void PauseTimer(float duration)
-    {
-        instance.StartCoroutine(instance.modFloat(Stat.DECREMENT, 0, duration));
-        instance.StartCoroutine(instance.modFloat(Stat.DECREMENT_PER_WRONG_BALLOON, 0, duration));
-        instance.StartCoroutine(instance.modFloat(Stat.INCREMENT_PER_RIGHT_BALLOON, 0, duration));
-    }
-
-    public static void AddExtraCorrectBalloon(float duration)
-    {
-        instance.StartCoroutine(instance.addCorrectChoice(duration));
-        instance.resetBalloonColors();
     }
 
     private IEnumerator modFloat(Stat stat, float newValue, float duration)
@@ -220,6 +219,13 @@ public class GameplayManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
         instance.numberCorrectChoices--;
     }
+
+    private IEnumerator setDoublePoints(float duration)
+    {
+        instance.isDoublePoints = true;
+        yield return new WaitForSeconds(duration);
+        instance.isDoublePoints = false;
+    }
     #endregion
 
     #region Powerups
@@ -236,6 +242,24 @@ public class GameplayManager : MonoBehaviour
     public static void UsePowerup(PowerupType type)
     {
         instance.availablePowerups[type]--;
+    }
+
+    public static void PauseTimer(float duration)
+    {
+        instance.StartCoroutine(instance.modFloat(Stat.DECREMENT, 0, duration));
+        instance.StartCoroutine(instance.modFloat(Stat.DECREMENT_PER_WRONG_BALLOON, 0, duration));
+        instance.StartCoroutine(instance.modFloat(Stat.INCREMENT_PER_RIGHT_BALLOON, 0, duration));
+    }
+
+    public static void AddExtraCorrectBalloon(float duration)
+    {
+        instance.StartCoroutine(instance.addCorrectChoice(duration));
+        instance.resetBalloonColors();
+    }
+
+    public static void SetDoublePoints(float duration)
+    {
+        instance.StartCoroutine(instance.setDoublePoints(duration));
     }
     #endregion
 }
